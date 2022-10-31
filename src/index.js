@@ -1,6 +1,8 @@
 import './css/styles.css';
+
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
+
 import { fetchCountries } from './js/fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
@@ -13,6 +15,7 @@ searchRef.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(e) {
   let inputCountry = e.target.value.trim();
+
   if (inputCountry) {
     return fetchCountries(inputCountry)
       .then(data => {
